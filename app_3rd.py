@@ -30,7 +30,7 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_His
     test_df.at[0,"Total_Income_log"] = Total_Income_log
     test_df.at[0,"Balance_Income"] = Balance_Income
     st.dataframe(test_df)
-    result = model.predict(test_df)[0]
+    result = Model.predict(test_df)[0]
     return result
 
     
