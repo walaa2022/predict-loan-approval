@@ -52,7 +52,7 @@ def main():
 
     
     if st.button("predict"):
-        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, LoanAmount, Loan_Amount_Term, Total_Income, CoapplicantIncome, LoanAmount_log, EMI, Total_Income_log, Balance_Income)
+        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, LoanAmount, Loan_Amount_Term, CoapplicantIncome, LoanAmount_log, Total_Income, EMI, Total_Income_log, Balance_Income)
         label = ["Approved" , "Not-approved"]
         st.text(f"The Loan will be {label[result]}")
         
