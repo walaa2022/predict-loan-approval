@@ -38,7 +38,7 @@ def main():
     st.title("Predict loan approval")
     Gender = st.selectbox("Gender" , ['Male', 'Female'])
     Married = st.selectbox("Married" , ['Yes', 'No'])
-    Dependents = st.selectbox("Dependents" , ['1', '2','3'])
+    Dependents = st.selectbox("Dependents" , ['0','1', '2','3'])
     Education = st.selectbox("Education" , ['Graduate', 'Not Graduate'])
     Self_Employed = st.selectbox("Self_Employed" , ['Yes', 'No'])
     Credit_History = st.selectbox("Credit_History" , ['0', '1'])
