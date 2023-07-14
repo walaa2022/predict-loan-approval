@@ -44,10 +44,10 @@ def main():
     Credit_History = st.selectbox("Credit_History" , ['0', '1'])
     Property_Area = st.selectbox("Property_Area", ['Urban', 'Rural', 'Semiurban'])
     Total_Income = st.slider("Total_Income", min_value = 1000, max_value = 100000, value= 0, step=1 )
-    LoanAmount = st.slider("LoanAmount", min_value = 1000, max_value = 500000, value= 0, step=1 )
-    Loan_Amount_Term = st.slider("Loan_Amount_Term", min_value = 1, max_value = 500000, value= 0, step=1 )
-    ApplicantIncome = st.slider("ApplicantIncome", min_value = 1000, max_value = 100000, value= 0, step=1 )
-    CoapplicantIncome = st.slider("CoapplicantIncome", min_value =1000, max_value = 100000, value= 0, step=1 )
+    LoanAmount = st.slider("LoanAmount", min_value = 9, max_value = 700, value= 0, step=1 )
+    Loan_Amount_Term = st.slider("Loan_Amount_Term", min_value = 11, max_value = 500, value= 0, step=1 )
+    ApplicantIncome = st.slider("ApplicantIncome", min_value = 100, max_value = 900000, value= 0, step=1 )
+    CoapplicantIncome = st.slider("CoapplicantIncome", min_value =0, max_value = 50000, value= 0, step=1 )
     
 
     
