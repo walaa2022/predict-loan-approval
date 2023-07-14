@@ -56,7 +56,7 @@ def main():
             Credit_History,
             Property_Area,
             Total_Income=Total_Income,
-            LoanAmount=LoanAmount_input,
+            LoanAmount=LoanAmount,
             Loan_Amount_Term=Loan_Amount_Term,
             ApplicantIncome=ApplicantIncome,
             CoapplicantIncome=CoapplicantIncome,
