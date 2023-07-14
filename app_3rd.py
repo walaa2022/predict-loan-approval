@@ -7,8 +7,7 @@ import numpy as np
 Inputs = joblib.load("Inputs.pkl")
 Model = joblib.load("Model.pkl")
 
-def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,
-               LoanAmount_log, Total_Income, EMI, Balance_Income, Total_Income_log):
+def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, LoanAmount_log, Total_Income, EMI, Total_Income_log, Balance_Income):
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
     Balance_Income = Total_Income - (EMI * 1000)
@@ -23,13 +22,13 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_His
     test_df.at[0,"Self_Employed"] = Self_Employed
     test_df.at[0,"Credit_History"] = Credit_History
     test_df.at[0,"Property_Area"] = Property_Area
-    test_df.at[0, "LoanAmount_log"] = LoanAmount_log
+    test_df.at[0,"LoanAmount_log"] = LoanAmount_log
     test_df.at[0,"Total_Income"] = Total_Income
     test_df.at[0,"EMI"] = EMI
-    test_df.at[0,"Balance_Income"] = Balance_Income
     test_df.at[0,"Total_Income_log"] = Total_Income_log
+    test_df.at[0,"Balance_Income"] = Balance_Income
     st.dataframe(test_df)
-    result = final_model.predict(test_df)[0]
+    result = model.predict(test_df)[0]
     return result
 
     
