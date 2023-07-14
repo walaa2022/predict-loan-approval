@@ -9,7 +9,7 @@ import xgboost as xgb
 Inputs = joblib.load("Inputs.pkl")
 Model = joblib.load("Model.pkl")
 
-def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, LoanAmount, Loan_Amount_Term, CoapplicantIncome, LoanAmount_log, Total_Income, EMI, Total_Income_log, Balance_Income):
+def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,Total_Income, LoanAmount, Loan_Amount_Term, ApplicantIncome, CoapplicantIncome):
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
     Balance_Income = Total_Income - (EMI * 1000)
@@ -43,7 +43,6 @@ def main():
     Self_Employed = st.selectbox("Self_Employed" , ['Yes', 'No'])
     Credit_History = st.selectbox("Credit_History" , ['0', '1'])
     Property_Area = st.selectbox("Property_Area", ['Urban', 'Rural', 'Semiurban'])
-    Total_Income = st.slider("Total_Income", min_value = 1000, max_value = 100000, value= 0, step=1 )
     LoanAmount = st.slider("LoanAmount", min_value = 9, max_value = 700, value= 0, step=1 )
     Loan_Amount_Term = st.slider("Loan_Amount_Term", min_value = 11, max_value = 500, value= 0, step=1 )
     ApplicantIncome = st.slider("ApplicantIncome", min_value = 100, max_value = 900000, value= 0, step=1 )
@@ -52,7 +51,7 @@ def main():
 
     
     if st.button("predict"):
-        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, LoanAmount, Loan_Amount_Term, CoapplicantIncome, LoanAmount_log, Total_Income, EMI, Total_Income_log, Balance_Income)
+        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, Total_Income, LoanAmount, Loan_Amount_Term, ApplicantIncome, CoapplicantIncome)
         label = ["Approved" , "Not-approved"]
         st.text(f"The Loan will be {label[result]}")
         
