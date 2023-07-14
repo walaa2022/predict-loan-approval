@@ -8,7 +8,7 @@ import xgboost as xgb
 Inputs = joblib.load("Inputs.pkl")
 Model = joblib.load("Model.pkl")
 
-def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, Total_Income_input, LoanAmount_input, Loan_Amount_Term, ApplicantIncome, CoapplicantIncome):
+def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, Total_Income, LoanAmount, Loan_Amount_Term, ApplicantIncome, CoapplicantIncome):
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount_input / Loan_Amount_Term
     Balance_Income = Total_Income - (EMI * 1000)
@@ -55,8 +55,8 @@ def main():
             Self_Employed,
             Credit_History,
             Property_Area,
-            Total_Income_input=Total_Income,
-            LoanAmount_input=LoanAmount_input,
+            Total_Income=Total_Income,
+            LoanAmount=LoanAmount_input,
             Loan_Amount_Term=Loan_Amount_Term,
             ApplicantIncome=ApplicantIncome,
             CoapplicantIncome=CoapplicantIncome,
