@@ -36,7 +36,7 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_His
     
 def main():
     st.title("Predict loan approval")
-    Gender = st.selectbox("Gender" , ['Yes', 'No'])
+    Gender = st.selectbox("Gender" , ['Male', 'Female'])
     Married = st.selectbox("Married" , ['Yes', 'No'])
     Dependents = st.selectbox("Dependents" , ['1', '2','3'])
     Education = st.selectbox("Education" , ['Graduate', 'Not Graduate'])
