@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+import xgboost as xgb
 
 
 Inputs = joblib.load("Inputs.pkl")
