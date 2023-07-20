@@ -47,7 +47,11 @@ def main():
     Loan_Amount_Term = st.slider("Loan_Amount_Term", min_value = 11, max_value = 500, value= 0, step=1 )
     ApplicantIncome = st.slider("ApplicantIncome", min_value = 100, max_value = 900000, value= 0, step=1 )
     CoapplicantIncome = st.slider("CoapplicantIncome", min_value =0, max_value = 50000, value= 0, step=1 )
-    
+    Total_Income = ApplicantIncome + CoapplicantIncome
+    EMI = LoanAmount / Loan_Amount_Term
+    Balance_Income = Total_Income - (EMI * 1000)
+    Total_Income_log = np.log (Total_Income)
+    LoanAmount_log = np.log (LoanAmount)
 
     
     if st.button("predict"):
