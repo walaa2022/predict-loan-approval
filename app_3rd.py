@@ -29,7 +29,7 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_His
     test_df.at[0,"EMI"] = EMI
     test_df.at[0,"Total_Income_log"] = Total_Income_log
     test_df.at[0,"Balance_Income"] = Balance_Income
-    st.dataframe(test_df)
+    #st.dataframe(test_df)
     result = Model.predict(test_df)[0]
     return result [0]
 
@@ -47,7 +47,7 @@ def main():
     Loan_Amount_Term = st.slider("Loan_Amount_Term", min_value = 11, max_value = 500, value= 0, step=1 )
     ApplicantIncome = st.slider("ApplicantIncome", min_value = 100, max_value = 900000, value= 0, step=1 )
     CoapplicantIncome = st.slider("CoapplicantIncome", min_value =0, max_value = 50000, value= 0, step=1 )
-    Total_Income = ApplicantIncome + CoapplicantIncome
+    Total_Income = ApplicantIncome+CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
     Balance_Income = (Total_Income - (EMI * 1000))
     Total_Income_log = np.log(Total_Income)
@@ -57,7 +57,7 @@ def main():
     if st.button("predict"):
         result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income ,EMI, Total_Income_log, Balance_Income)
         label = ["Approved" , "Not-approved"]
-        st.text(f"The Loan will be {label[result]}")
+        st.text(f"The Loan will be {list_result[result]}")
         
 if __name__ == '__main__':
     main()    
