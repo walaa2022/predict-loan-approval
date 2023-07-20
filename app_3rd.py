@@ -12,7 +12,7 @@ Model = joblib.load("Model.pkl")
 def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income,EMI, Total_Income_log, Balance_Income):
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
-    Balance_Income = Total_Income - (EMI * 1000)
+    Balance_Income = (Total_Income - (EMI * 1000))
     Total_Income_log = np.log (Total_Income)
     LoanAmount_log = np.log (LoanAmount)
     
@@ -31,7 +31,7 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_His
     test_df.at[0,"Balance_Income"] = Balance_Income
     st.dataframe(test_df)
     result = Model.predict(test_df)[0]
-    return result
+    return result [0]
 
     
 def main():
@@ -49,7 +49,7 @@ def main():
     CoapplicantIncome = st.slider("CoapplicantIncome", min_value =0, max_value = 50000, value= 0, step=1 )
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
-    Balance_Income = Total_Income - (EMI * 1000)
+    Balance_Income = (Total_Income - (EMI * 1000))
     Total_Income_log = np.log (Total_Income)
     LoanAmount_log = np.log (LoanAmount)
 
