@@ -9,12 +9,12 @@ import xgboost as xgb
 Inputs = joblib.load("Inputs.pkl")
 Model = joblib.load("Model.pkl")
 
-def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income,EMI, Total_Income_log, Balance_Income):
+def prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income ,EMI, Total_Income_log, Balance_Income):
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
     Balance_Income = (Total_Income - (EMI * 1000))
-    Total_Income_log = np.log (Total_Income)
-    LoanAmount_log = np.log (LoanAmount)
+    Total_Income_log = np.log(Total_Income)
+    LoanAmount_log = np.log(LoanAmount)
     
     test_df = pd.DataFrame(columns=Inputs)
     test_df.at[0,"Gender"] = Gender
@@ -50,12 +50,12 @@ def main():
     Total_Income = ApplicantIncome + CoapplicantIncome
     EMI = LoanAmount / Loan_Amount_Term
     Balance_Income = (Total_Income - (EMI * 1000))
-    Total_Income_log = np.log (Total_Income)
-    LoanAmount_log = np.log (LoanAmount)
+    Total_Income_log = np.log(Total_Income)
+    LoanAmount_log = np.log(LoanAmount)
 
     
     if st.button("predict"):
-        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income,EMI, Total_Income_log, Balance_Income)
+        result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income ,EMI, Total_Income_log, Balance_Income)
         label = ["Approved" , "Not-approved"]
         st.text(f"The Loan will be {label[result]}")
         
