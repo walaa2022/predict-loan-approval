@@ -57,7 +57,7 @@ def main():
     if st.button("predict"):
         result = prediction(Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area,LoanAmount_log,Total_Income ,EMI, Total_Income_log, Balance_Income)
         label = ["Approved" , "Not-approved"]
-        st.text(f"The Loan will be {list_result[result]}")
+        st.text(f"The Loan will be {label[result]}")
         
 if __name__ == '__main__':
     main()    
